@@ -12,17 +12,9 @@ namespace blogPatricio.Controllers
         {
             return View();
         }
-
-        public ActionResult About()
+        public ActionResult Post()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Here you can create a new Post";
 
             return View();
         }
