@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+    @Model blogPatricio;
+
+<div class="jumbotron">
+    <h1>Edit your post Post</h1>
+</div>
+<div>
+    <form asp-controller= "Home" asp-action="Edit" method="post">
+        <div>
+            <label>Titulo</label>
+            <input asp-for="Titulo" />
+        </div>
+        <div>
+            <label>Contenido</label>
+            <input asp-for="Contenido" />
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+</div>

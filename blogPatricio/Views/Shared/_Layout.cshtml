@@ -23,6 +23,7 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Create", "Post", "Home")</li>
+                    <li>@Html.ActionLink("Edit", "Edit", "Home")</li>
                 </ul>
             </div>
         </div>
@@ -31,7 +32,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            <p>&copy; @DateTime.Now.Year</p>
         </footer>
     </div>
 

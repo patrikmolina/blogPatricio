@@ -14,9 +14,20 @@ namespace blogPatricio.Controllers
         }
         public ActionResult Post()
         {
-            ViewBag.Message = "Here you can create a new Post";
-
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Edit()
+        {
+            return View(new Post());
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Post post)
+        {
+            return RedirectToAction("Index");
+        }
+
     }
 }
