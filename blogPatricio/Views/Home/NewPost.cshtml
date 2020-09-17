@@ -1,0 +1,50 @@
+﻿@model blogPatricio.Post
+
+@{
+    ViewBag.Title = "Home Page";
+    
+}
+<body>
+
+    <div class="jumbotron">
+        <h1>Here you can create a new Post</h1>
+    </div>
+
+    
+        <div class="row">
+            <form method="post" asp-controller= "Home" asp-action="NewPost">
+                <div>
+                    <h2>Titulo:</h2>
+                    <input type="text" name="Titulo" />
+                </div>
+
+                <div>
+                    <h2>Contenido:</h2>
+                    
+                    <textarea rows="10" cols="40" type="text" name="Contenido" placeholder="Escribe tu nota aqui"></textarea>
+                </div>
+
+                <div>
+                    <h2>Imagen:</h2>
+                    <input type="text" name="Imagen" />
+                </div>
+                <div>
+                    <h2>Categoria:</h2>
+                    <input type="text" name="Categoria" />
+                </div>
+                <div>
+                    <h2>Fecha:</h2>
+                    <input type="date" name="Fecha" />
+                </div>
+
+
+
+                <div style="margin-top: 20px">
+                    <button class="btn btn-primary btn-lg" type="submit" value="Confirmar"> Confirmar </button>
+                    <a href="/Home/Index" class="btn btn-danger btn-lg">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    
+
+</body>

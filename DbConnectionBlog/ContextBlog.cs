@@ -31,6 +31,8 @@ namespace DbConnectionBlog
             modelBuilder.Entity<blog_entrada>()
                 .Property(e => e.categoria)
                 .IsUnicode(false);
+
+
         }
     }
 }

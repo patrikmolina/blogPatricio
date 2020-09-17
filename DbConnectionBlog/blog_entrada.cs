@@ -26,6 +26,6 @@ namespace DbConnectionBlog
         [StringLength(255)]
         public string categoria { get; set; }
 
-        public DateTime fecha_creaciom { get; set; }
+        //public DateTime fecha_creacion { get; set; }
     }
 }
