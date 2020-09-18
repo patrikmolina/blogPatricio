@@ -19,7 +19,7 @@ namespace blogPatricio.Models
             con = new SqlConnection(constr);
         }
 
-        public int Create(Post po) 
+        public int Create(Post po)
         {
             Conectar();
             SqlCommand comando = new SqlCommand("insert into blog_entrada(Titulo, Contenido, Imagen, Categoria, Fecha_Creacion) values (@Titulo, @Contenido, @Imagen, @Categoria, @FechaCreacion)", con);
@@ -45,14 +45,14 @@ namespace blogPatricio.Models
             Conectar();
             SqlCommand comando = new SqlCommand("update blog_entrada set Titulo=@Titulo, Contenido=@Contenido, Imagen=@Imagen, Categoria=@Categoria where Id=@Id", con);
             comando.Parameters.Add("@Titulo", SqlDbType.VarChar);
-            comando.Parameters.Add("@Contenido", SqlDbType.VarChar);
-            comando.Parameters.Add("@Imagen", SqlDbType.VarChar);
-            comando.Parameters.Add("@Categoria", SqlDbType.VarChar);
-            comando.Parameters.Add("@Id", SqlDbType.Int);
             comando.Parameters["@Titulo"].Value = po.Titulo;
+            comando.Parameters.Add("@Contenido", SqlDbType.VarChar);
             comando.Parameters["@Contenido"].Value = po.Contenido;
+            comando.Parameters.Add("@Imagen", SqlDbType.VarChar);
             comando.Parameters["@Imagen"].Value = po.Imagen;
+            comando.Parameters.Add("@Categoria", SqlDbType.VarChar);
             comando.Parameters["@Categoria"].Value = po.Categoria;
+            comando.Parameters.Add("@Id", SqlDbType.Int);
             comando.Parameters["@Id"].Value = po.Id;
             con.Open();
             int i = comando.ExecuteNonQuery();
@@ -69,7 +69,7 @@ namespace blogPatricio.Models
             con.Open();
             SqlDataReader registros = comando.ExecuteReader();
             Post po = new Post();
-            if (registros.Read()) 
+            if (registros.Read())
             {
                 po.Id = int.Parse(registros["id"].ToString());
                 po.Titulo = registros["Titulo"].ToString();
@@ -93,6 +93,32 @@ namespace blogPatricio.Models
             return i;
         }
 
+        public List<Post> getAllPost()
+            
+        {
+            Conectar();
+            List<Post> allThePost = new List<Post>();
+            
+            SqlCommand com = new SqlCommand("select Id, Titulo, Contenido, Imagen, Categoria, Fecha_Creacion from blog_entrada", con);
+            con.Open();
+            SqlDataReader registros = com.ExecuteReader();
+            while (registros.Read())
+            {
+                Post po = new Post
+                {
+                    Id = int.Parse(registros["Id"].ToString()),
+                    Titulo = registros["Titulo"].ToString(),
+                    Contenido = registros["Contenido"].ToString(),
+                    Imagen = registros["Imagen"].ToString(),
+                    Categoria = registros["Categoria"].ToString(),
+                    //FechaCreacion = DateTime.Parse(registros["Fecha_Creacion"].ToString())
+                };
+                allThePost.Add(po);
+            }
+            con.Close();
+            return allThePost;
+        }
+        
 
 
     }

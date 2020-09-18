@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
-namespace blogPatricio
+namespace blogPatricio.Models
 {
     public class Post
     {
@@ -13,5 +14,8 @@ namespace blogPatricio
         public string Imagen { get; set; }
         public string Categoria { get; set; }
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
+
+        public List<Post>allThePost { get; set; }
     }
+    
 }

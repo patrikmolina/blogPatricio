@@ -14,7 +14,8 @@ namespace blogPatricio.Controllers
     
         public ActionResult Index()
         {
-            return View();
+            DbActions dbacc = new DbActions();
+            return View(dbacc.getAllPost());
         }
         public ActionResult NewPost()
         {
@@ -37,7 +38,7 @@ namespace blogPatricio.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
+        
         public ActionResult Edit(int Id)
         {
             DbActions dbacc = new DbActions();
@@ -51,6 +52,7 @@ namespace blogPatricio.Controllers
             DbActions dbacc = new DbActions();
             Post po = new Post
             {
+                Id = int.Parse(collection["Id"].ToString()),
                 Titulo = collection["Titulo"],
                 Contenido = collection["Contenido"],
                 Imagen = collection["Imagen"],
@@ -66,6 +68,8 @@ namespace blogPatricio.Controllers
             dbacc.Delete(id);
             return RedirectToAction("Index");
         }
+
+       
 
     }
 }
