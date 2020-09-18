@@ -10,42 +10,26 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
-<body>
+    <body>
 
-    <div class="jumbotron">
-        <h1>Blog Patricio</h1>
-        <p class="lead"></p>
-        <p><a href="/home/NewPost" class="btn btn-primary btn-lg"> New Post &raquo;</a></p>
-    </div>
+        <div class="jumbotron">
+            <h1>Blog Patricio</h1>
+         <p class="lead"></p>
+         <p><a href="/home/NewPost" class="btn btn-primary btn-lg"> New Post &raquo;</a></p>
+         </div>
 
         @foreach (var Post in Model)
         {
-          <div class="row" style="border: 1px solid black">
+             <div class="row" style="border: 1px solid black">
                  <p hidden>@Post.Id</p>
                  <div class="col-md-12">
                      <h2>@Post.Titulo</h2>
-                
-                     </div>
-            <div class="col-md-12">
-                <h2>@Post.Contenido</h2>
-                
-            </div>
-            <div class="col-md-12">
-                
-                <img src="/Images/@Post.Imagen" alt="imagen" />
-            </div>
-            <div class="col-md-12">
-              <h2>@Post.Categoria</h2>
-
-                    <a href="/home/edit?Id=@Post.Id" class="btn btn-default">Edit &raquo;</a>
-                    <a href="/home/delete?Id=@Post.Id" class="btn btn-default">Delete &raquo;</a>
-
-                </div>
-
-               </div>
+                     <a href="/home/viewPost?Id=@Post.Id" class="btn btn-default">View more &raquo;</a>
+                 </div>
+             </div>
       
-               }
+        }
 
 
-</body>
+    </body>
 </html>

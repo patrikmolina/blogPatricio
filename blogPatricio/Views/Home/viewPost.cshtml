@@ -1,0 +1,38 @@
+﻿@model blogPatricio.Models.Post
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@Model.Titulo</title>
+</head>
+<body>
+    
+        <div class="row" style="border: 1px solid black">
+            <p hidden>@Model.Id</p>
+
+            <div class="col-md-12">
+                <h2>@Model.Contenido</h2>
+
+            </div>
+            <div class="col-md-12">
+
+                <img src="/Images/@Model.Imagen" alt="imagen" />
+            </div>
+            <div class="col-md-12">
+                <h2>@Model.Categoria</h2>
+
+                <a href="/home/edit?Id=@Model.Id" class="btn btn-default">Edit &raquo;</a>
+                <a href="/home/delete?Id=@Model.Id" class="btn btn-default">Delete &raquo;</a>
+                <a href="/home" class="btn btn-default">&laquo Back </a>
+
+            </div>
+
+        </div>
+    
+</body>
+</html>

@@ -37,8 +37,13 @@ namespace blogPatricio.Controllers
             dbacc.Create(po);
             return RedirectToAction("Index");
         }
+        public ActionResult viewPost(int Id)
+        {
+            DbActions dbacc = new DbActions();
+            Post po = dbacc.getPost(Id);
+            return View(po);
+        }
 
-        
         public ActionResult Edit(int Id)
         {
             DbActions dbacc = new DbActions();
@@ -68,6 +73,8 @@ namespace blogPatricio.Controllers
             dbacc.Delete(id);
             return RedirectToAction("Index");
         }
+
+        
 
        
 
