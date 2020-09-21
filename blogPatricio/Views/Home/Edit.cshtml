@@ -1,0 +1,52 @@
+﻿@model blogPatricio.Models.Post
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <div class="jumbotron">
+        <h1>Edit your post Post</h1>
+    </div>
+    <form method="post" action="/Home/edit" >
+        <div hidden>
+            <h2>Id:</h2>
+            <input type="text" name="Id" value="@Model.Id" readonly />
+        </div>
+
+        <div>
+            <h2>Titulo:</h2>
+            <input type="text" name="Titulo" value="@Model.Titulo" />
+        </div>
+
+        <div>
+            <h2>Contenido:</h2>
+            <input type="text" name="Contenido" value="@Model.Contenido" />
+        </div>
+
+        <div>
+            <h2>Imagen:</h2>
+            <input type="file" name="Imagen" value="@Model.Imagen" />
+        </div>
+
+        <div>
+            <h2>Categoria:</h2>
+            <input type="text" name="Categoria" value="@Model.Categoria" />
+        </div>
+
+        <div style="margin-top: 20px">
+            <button class="btn btn-primary btn-lg" type="submit" value="Confirmar"> Confirmar </button>
+            <a href="/Home/Index" class="btn btn-danger btn-lg">Cancelar</a>
+        </div>
+
+
+    </form>
+
+</body>
+</html>
