@@ -15,6 +15,8 @@ namespace blogPatricio.Models
         public string Categoria { get; set; }
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
 
+        public int Active { get; set; }
+
         public List<Post>allThePost { get; set; }
     }
     

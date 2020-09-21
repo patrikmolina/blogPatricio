@@ -84,7 +84,7 @@ namespace blogPatricio.Models
         public int Delete(int Id)
         {
             Conectar();
-            SqlCommand comando = new SqlCommand("delete from blog_entrada where id=@id", con);
+            SqlCommand comando = new SqlCommand("update blog_entrada set active=0 where id=@id", con);
             comando.Parameters.Add("@id", SqlDbType.Int);
             comando.Parameters["@id"].Value = Id;
             con.Open();
@@ -99,7 +99,7 @@ namespace blogPatricio.Models
             Conectar();
             List<Post> allThePost = new List<Post>();
             
-            SqlCommand com = new SqlCommand("select Id, Titulo, Contenido, Imagen, Categoria, Fecha_Creacion from blog_entrada", con);
+            SqlCommand com = new SqlCommand("select Id, Titulo, Contenido, Imagen, Categoria, Fecha_Creacion from blog_entrada where active=1", con);
             con.Open();
             SqlDataReader registros = com.ExecuteReader();
             while (registros.Read())
